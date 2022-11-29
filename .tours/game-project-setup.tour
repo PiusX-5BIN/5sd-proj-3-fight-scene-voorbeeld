@@ -1,0 +1,71 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Game Project Setup",
+  "steps": [
+    {
+      "file": "tutorial/FollowerGame.js",
+      "description": "Start by creating a file for your game. The game we will create is called \"FollowerGame\", so we call the file \"FollowerGame.js\"",
+      "line": 1
+    },
+    {
+      "file": "tutorial/index.html",
+      "description": "This is the place where you link all your code together.\r\nAdd your game file here, like this:\r\n\r\n```\r\n<script src=\"FollowerGame.js\"></script>\r\n```",
+      "line": 25
+    },
+    {
+      "file": "tutorial/FollowerGame.js",
+      "description": "Go back to your Game file, and create a FollowerGame class. This class should inherit from the \"Game\" class.\r\n\r\n```\r\nclass FollowerGame extends Game {\r\n    \r\n}\r\n```",
+      "line": 1
+    },
+    {
+      "file": "tutorial/settings/Settings.js",
+      "description": "Now that we have a class for our game, we can add the main game class to our settings.\r\n\r\nJust pass the name of your game class as a value to this variable.\r\n\r\n```\r\nstatic GameClass = FollowerGame;\r\n```",
+      "line": 2
+    },
+    {
+      "file": "tutorial/FollowerGame.js",
+      "description": "The code still won't run. This is because our class \"FollowerGame\" inherits from \"Game\", but it doesn't call the parent constructor.\r\n\r\nTo do this, we expand our code by adding our own constructor, and calling the `super()` method.\r\n\r\n```\r\nclass FollowerGame extends Game {\r\n    constructor() {\r\n        super();\r\n    }\r\n}\r\n```",
+      "line": 1
+    },
+    {
+      "file": "tutorial/index.html",
+      "description": "Now we can run the game. This can be done by running a local server. \r\n\r\nIf you have installed the extension \"Live Server\", right-click the file called \"index.html\" and choose \"Open with live server\".\r\nThis should show you an empty rectangle!",
+      "line": 1
+    },
+    {
+      "file": "tutorial/gameobjects/Player.js",
+      "description": "Time to create an object. We will start out with our Player. Our player will be an object that moves around our game, controlled by the keyboard. \r\n\r\nTo do this, we created a file named \"Player.js\" in the folder \"gameobjects\".",
+      "line": 1
+    },
+    {
+      "file": "tutorial/index.html",
+      "description": "Now we come back to our index.html file, but this time we will add a link to our new \"Player.js\" file.\r\n\r\n```\r\n<script src=\"gameobjects/Player.js\"></script>\r\n```",
+      "line": 23
+    },
+    {
+      "file": "tutorial/gameobjects/Player.js",
+      "description": "Back to our Player file, we can create a Player class. This class will NOT inherit from Game. Instead, it will inherit from GameObject, because it is an object in our game.\r\n\r\n```\r\nclass Player extends GameObject {\r\n    \r\n}\r\n```",
+      "line": 1
+    },
+    {
+      "file": "tutorial/FollowerGame.js",
+      "description": "We can now create a Player instance. We add a field to our FollowerGame class and call it `#player`. In the constructor, we assign an object-value of Player to it.\r\n\r\n```\r\nclass FollowerGame extends Game {\r\n    #player = null;\r\n\r\n    constructor() {\r\n        super();\r\n        this.#player = new Player();\r\n    }\r\n}\r\n```",
+      "line": 1
+    },
+    {
+      "file": "tutorial/gameobjects/Player.js",
+      "description": "The code won't run. This is because our class \"Player\" inherits from the class \"GameObject\", but it doesn't call the parent constructor.\r\n\r\nTo do this, we expand our code by adding our own constructor, and then calling the `super()` function. However, unlike the FollowerGame class, this time the `super()` function needs parameters ([see documentation](https://t-informatica.github.io/p5-play-OO/GameObject.html#GameObject)). In this case the call to the parent constructor needs 4 parameters:\r\n - **x**: the x-position of the GameObject\r\n - **y**: the y-position of the GameObject\r\n - **width**: the width of the GameObject\r\n - **height**: the height of the GameObject\r\n\r\nWe could just pass any number for these parameters. However, in this case we will create some parameters in our own constructor (x, y, width, height) and then pass them forward to the super() function.\r\n\r\n```\r\nclass Player extends GameObject {\r\n    constructor(x, y, width, height) {\r\n        super(x, y, width, height);\r\n    }\r\n}\r\n```",
+      "line": 5
+    },
+    {
+      "file": "tutorial/FollowerGame.js",
+      "description": "Now we need to adjust our instruction to create a new Player object. Because the Player constructor needs parameters now, we need to add them here.\r\n\r\nIn the constructor, add some values to the Player constructor call for the x, y, width and height parameters.\r\n\r\n```\r\nthis.#player = new Player(200, 200, 50, 50);\r\n```",
+      "line": 1
+    },
+    {
+      "file": "tutorial/index.html",
+      "description": "Now we can try to run the game again. This can be done by running a local server.\r\n\r\nIf you have installed the extension \"Live Server\", right-click the file called \"index.html\" and choose \"Open with live server\". This should show you a magenta-colored rectangle at position (100, 100) which is 50 pixels wide and high.",
+      "line": 1
+    }
+  ]
+}
