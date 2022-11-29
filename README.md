@@ -88,7 +88,7 @@ Hieronder zie je enkele voorbeelden van patronen die je kunt maken met p5.js. Jo
 
 AFBEELDING FIGHT SCENE:
 
-![fight scene](????)
+![fight scene](https://docs.google.com/drawings/d/e/2PACX-1vQATsdUtZJfqn4zzzr0x1byaja4PIFwMOC27TMj_0JzUSrJ2nqR7m-iq1EUx27-ge33NETsX-RpQzoM/pub?w=960&h=720)
 
 AFBEELDING PATROON:
 
